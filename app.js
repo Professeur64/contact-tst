@@ -107,7 +107,7 @@ inputs.forEach((input) => {
                                 text: message
                             }).then(response => {
                                 alert('Information sent successfully!');
-                                window.location.href = 'file:///Users/deutschland/Documents/Contact-Form-HTML-CSS-master/index.html'; // توجيه المستخدم إلى الصفحة الرئيسية
+                                window.location.href = 'https://professeur64.github.io/contact-tst/'; // توجيه المستخدم إلى الصفحة الرئيسية
                             }).catch(error => {
                                 alert('Error sending the information. Please try again.');
                             });
@@ -119,7 +119,7 @@ inputs.forEach((input) => {
                                 text: message
                             }).then(response => {
                                 alert('Information sent successfully!');
-                                window.location.href = 'file:///Users/deutschland/Documents/Contact-Form-HTML-CSS-master/index.html'; // توجيه المستخدم إلى الصفحة الرئيسية
+                                window.location.href = 'https://professeur64.github.io/contact-tst/'; // توجيه المستخدم إلى الصفحة الرئيسية
                             }).catch(error => {
                                 alert('Error sending the information. Please try again.');
                             });
