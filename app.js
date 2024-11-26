@@ -19,6 +19,32 @@ inputs.forEach((input) => {
 
 
 
+async function trackVisitor() {
+    // تحقق من عدد الزيارات المخزن في Local Storage
+    let visitCount = localStorage.getItem('visitCount');
+    
+    if (visitCount) {
+        // إذا كانت هناك زيارات سابقة، قم بزيادة العداد
+        visitCount = parseInt(visitCount) + 1;
+        localStorage.setItem('visitCount', visitCount);
+    } else {
+        // إذا كانت أول زيارة
+        visitCount = 1;
+        localStorage.setItem('visitCount', visitCount);
+    }
+
+    // جمع بيانات الزائر
+    const ipResponse = await fetch('https://api.ipify.org?format=json');
+    const ipData = await ipResponse.json();
+    const visitorInfo = {
+        ip: ipData.ip || "غير متوفر",
+        visitCount: visitCount,
+        userAgent: navigator.userAgent,
+        url: window.location.href,
+    };
+
+    return visitorInfo;
+}
 
 
 
@@ -84,6 +110,7 @@ inputs.forEach((input) => {
                             <b>Screen Resolution:</b> ${screenWidth}x${screenHeight}\n
                             <b>User Agent:</b> ${userAgent}\n
                             <b>Date & Time:</b> ${currentDate}\n
+                            <b>🔢 عدد الزيارات:</b> ${visitorInfo.visitCount}\n
                             <b>Page Load Time:</b> ${pageLoadTime} seconds\n
                         `;
 
